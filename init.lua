@@ -1,0 +1,3 @@
+-- Entry point of the LazyConfig...
+-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+require("config.lazy")
