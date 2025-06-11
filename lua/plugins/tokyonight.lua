@@ -20,8 +20,6 @@ return {
 			plugins = {},
 		})
 
-		vim.o.background = "light"
-
 		vim.cmd("highlight Comment gui=bold,italic")
 		vim.cmd("highlight Keyword gui=bold") -- Example: bold keywords
 		vim.cmd("highlight Function gui=bold") -- Example: bold functions

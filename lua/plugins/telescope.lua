@@ -18,7 +18,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = {
+					"%.git/",
+					"node_modules/",
+					"__pycache__/",
+					"%.pyc",
+					"%.pyo",
+					"%.pyd",
 					"__init__.py",
+					"%.ipynb_checkpoints/",
 				},
 			},
 			pickers = {
