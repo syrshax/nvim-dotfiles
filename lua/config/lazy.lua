@@ -144,6 +144,6 @@ require("lazy").setup({
 	checker = { enabled = true, notify = false },
 })
 
-vim.o.background = "light"
+vim.o.background = "dark"
 vim.cmd("colorscheme rose-pine")
 -- vim.g.starry_transparent = true
