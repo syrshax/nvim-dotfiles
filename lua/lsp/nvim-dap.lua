@@ -15,5 +15,7 @@ return {
 		-- Load language-specific configurations
 		require("lsp.dap.python").setup()
 		require("lsp.dap.go").setup()
+
+		require("lsp.dap.cpp").setup()
 	end,
 }

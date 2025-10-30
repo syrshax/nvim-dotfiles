@@ -11,8 +11,13 @@ return {
 		"folke/tokyonight.nvim",
 	},
 	-- Gruvbox
+	-- Gruvbox (Corrected Initialization)
 	{
 		"ellisonleao/gruvbox.nvim",
+		opts = {
+			transparent_mode = true,
+			terminal_colors = true,
+		},
 	},
 	-- Kanagawa
 	{
@@ -39,7 +44,6 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		lazy = true,
 	},
 	-- Everforest
 	{
@@ -118,7 +122,6 @@ return {
 
 			-- After setting up nightfox, you need to load the colorscheme.
 			-- 'nightfox' is the default name, but you can specify variants like 'dayfox', 'dawnfox', etc.
-			vim.cmd("colorscheme nightfox")
 			-- OR use a specific variant, e.g.:
 			-- vim.cmd("colorscheme nordfox")
 		end,
@@ -140,5 +143,15 @@ return {
 				-- ...
 			})
 		end,
+	},
+	{
+		"/idr4n/github-monochrome.nvim",
+		name = "github-monochrome",
+		priority = 1001,
+	},
+	{
+		"ring0-rootkit/ring0-dark.nvim",
+		priority = 1000, -- Make sure to load this before all the other start plugins.
+		init = function() end,
 	},
 }

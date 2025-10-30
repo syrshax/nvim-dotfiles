@@ -1,10 +1,10 @@
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "williamboman/mason.nvim", config = true, version = "1.11.0", priority = 1000 }, -- NOTE: Must be loaded before dependants
+		{ "williamboman/mason.nvim", config = true, priority = 1000 }, -- NOTE: Must be loaded before dependants
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
-		{ "williamboman/mason-lspconfig.nvim", version = "1.32.0" },
+		{ "williamboman/mason-lspconfig.nvim" },
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -62,9 +62,8 @@ return { -- LSP Configuration & Plugins
 
 		vim.api.nvim_create_autocmd("LspDetach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-			callback = function(event)
+			callback = function()
 				vim.lsp.buf.clear_references()
-				vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event.buf })
 			end,
 		})
 
@@ -126,12 +125,23 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			jdtls = {
+				-- The main configuration for jdtls
+				settings = {
+					java = {
+						-- Any specific Java settings you want
+					},
+				},
+				-- This is the crucial part that finds your project root
+				root_dir = require("lspconfig.util").root_pattern(".git", "pom.xml", "build.gradle", "settings.gradle"),
+			},
 		}
 		require("mason").setup()
 
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
+			"eslint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -148,7 +158,6 @@ return { -- LSP Configuration & Plugins
 			ensure_installed = {
 				"pyright",
 			},
-			automatic_installation = true,
 		})
 	end,
 }

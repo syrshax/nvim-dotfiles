@@ -20,8 +20,9 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.opt["tabstop"] = 4
-vim.opt["shiftwidth"] = 4
+vim.opt["tabstop"] = 2
+vim.opt["shiftwidth"] = 2
+
 -- vim.opt.colorcolumn = "99"
 vim.opt.signcolumn = "yes"
 vim.g.have_nerd_font = true
@@ -112,7 +113,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- vim.keymap.set('n',
 --
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -145,5 +146,5 @@ require("lazy").setup({
 })
 
 vim.o.background = "dark"
-vim.cmd("colorscheme rose-pine")
+vim.cmd.colorscheme("gruvbox")
 -- vim.g.starry_transparent = true

@@ -26,6 +26,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					"%.pyd",
 					"__init__.py",
 					"%.ipynb_checkpoints/",
+					"build/*",
+					"%.class",
 				},
 			},
 			pickers = {
